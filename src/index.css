@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern E-commerce Design System - Etsy Inspired 
+All colors MUST be HSL for consistent theming.
+*/
+
+
+
+@layer base {
+  :root {
+    /* Base Colors - Clean & Professional */
+    --background: 0 0% 100%;
+    --foreground: 210 11% 15%;
+    
+    /* Card System */
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+    
+    /* Interactive Elements */
+    --primary: 210 100% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 100% 48%;
+    
+    /* Accent Colors - Teal/Blue Focus */
+    --accent: 180 100% 45%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 180 100% 97%;
+    
+    /* Secondary Actions */
+    --secondary: 210 16% 93%;
+    --secondary-foreground: 210 11% 15%;
+    --secondary-hover: 210 16% 88%;
+    
+    /* Neutral Palette */
+    --muted: 210 16% 98%;
+    --muted-foreground: 210 7% 46%;
+    --border: 210 16% 88%;
+    --input: 210 16% 94%;
+    
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    
+    /* Focus States */
+    --ring: 210 100% 56%;
+    
+    /* Shadows & Effects */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+    --shadow-hover: 0 20px 25px -5px hsl(0 0% 0% / 0.1), 0 8px 10px -6px hsl(0 0% 0% / 0.1);
+    
+    /* Border Radius */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Card Components */
+  .card-etsy {
+    @apply bg-card rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden;
+  }
+  
+  .card-etsy-hover {
+    @apply hover:scale-[1.02] hover:-translate-y-1;
+  }
+  
+  /* Product Card Specific */
+  .product-card {
+    @apply card-etsy card-etsy-hover cursor-pointer;
+  }
+  
+  .product-image {
+    @apply w-full h-48 object-cover transition-transform duration-300 hover:scale-105;
+  }
+  
+  /* Category Cards */
+  .category-card {
+    @apply card-etsy card-etsy-hover relative overflow-hidden cursor-pointer;
+  }
+  
+  .category-card-large {
+    @apply col-span-2 h-64;
+  }
+  
+  .category-card-medium {
+    @apply h-48;
+  }
+  
+  .category-card-small {
+    @apply h-32;
+  }
+  
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-hover text-primary-foreground font-medium px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-hover text-secondary-foreground font-medium px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md;
+  }
+  
+  .btn-accent {
+    @apply bg-accent hover:bg-accent/90 text-accent-foreground font-medium px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg;
+  }
+  
+  /* Overlay Effects */
+  .overlay-dark {
+    @apply absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent;
+  }
+  
+  .overlay-content {
+    @apply absolute inset-0 flex flex-col justify-end p-6 text-white;
+  }
+  
+  /* Animations */
+  .wishlist-heart {
+    @apply absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-white hover:scale-110;
+  }
+  
+  /* Text Utilities */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  /* Shadow Utilities */
+  .shadow-etsy {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .shadow-etsy-hover {
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Transition Utilities */
+  .transition-etsy {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  /* Scrollbar Utilities */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Line Clamp */
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
